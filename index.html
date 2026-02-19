@@ -1,80 +1,553 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Alan Eduardo | Mechatronics Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Resume — Your Name">CV Web Alan Rodríguez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  <main class="container">
+  <header>
+  <div class="wrap nav" role="banner">
+    <div class="left-row" style="display:flex;align-items:center;gap:12px">
+      <button id="langToggle" class="lang-btn" aria-pressed="false" title="Cambiar idioma / Change language">
+        ES ⇄ EN
+      </button>
 
-    <header class="hero">
-      <h1>Alan Eduardo</h1>
-      <p class="role">Mechatronics Engineer · Manufacturing · Thermofluids</p>
-      <p class="contact">
-        alan@email.com · GitHub · LinkedIn · Mexico
-      </p>
-    </header>
+      <div class="logo" aria-label="logo"> Alan Eduardo Rodríguez Pérez</div>
+    </div>
 
-    <section class="section">
-      <h2>Summary</h2>
-      <p>
-        Mechatronics engineer with hands-on experience in multidisciplinary
-        engineering projects spanning manufacturing systems, thermofluid analysis,
-        embedded electronics, and mechanical design. Focused on building
-        technically rigorous, manufacturable solutions.
-      </p>
-    </section>
+    <!-- hamburger (visible en pantallas pequeñas) -->
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span class="bars" aria-hidden="true">☰</span>
+    </button>
 
-    <section class="section">
-      <h2>Technical Skills</h2>
+    <nav id="mainNav" class="main-nav" aria-label="main navigation">
       <ul>
-        <li><strong>Mechanical:</strong> Fusion 360, GD&T, tolerances, manufacturing feasibility</li>
-        <li><strong>Electronics:</strong> ESP32, Raspberry Pi Pico, sensors, embedded control</li>
-        <li><strong>Programming:</strong> Python, C/C++, MicroPython</li>
-        <li><strong>Analysis:</strong> Thermofluids, granular flow, experimental setups</li>
+        <li><a href="#portfolio" data-en="Portfolio">Portfolio</a></li>
+        <li><a href="#education" data-en="Education">Educación</a></li>
+        <li><a href="#experience" data-en="Experience">Experiencia</a></li>
+        <li><a href="#skills" data-en="Skills">Habilidades</a></li>
+        <li><a href="#contact" class="cta" data-en="Contact">Contacto</a></li>
       </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="wrap" role="main">
+    <!-- HERO -->
+    <section class="hero section" aria-label="presentación">
+      <div class="photo" aria-hidden="true">
+        <!-- reemplaza por tu foto -->
+        <img src="img/foto curr.jpeg" alt="Foto personal">
+      </div>
+
+      <div class="intro">
+        <h4 data-en="Hey, I'm">Hola, soy</h4>
+        <h1 data-en="Alan — Mechatronics Engineer">Alan Rodríguez — Ingeniero Mecatrónico</h1>
+        <div class="roles" data-en="Embedded • Product Design • Mechanical Design">Desarrollo de Proyectos • Diseño Mecanico • Diseño de productos </div>
+        <p data-en="Hands-on experience designing and manufacturing functional test equipment,
+developing electromechanical systems, and supporting applied research projects
+for government and academic institutions. Proven ability to take projects from
+conceptual design to physical prototyping, validation, and documentation.
+Career focus on automotive engineering, advanced manufacturing, and product
+development environments.....">
+          Experiencia práctica en diseño, manufactura, ensamble y validación de equipos de prueba y sistemas electromecánicos. Capacidad para gestionar proyectos desde la etapa conceptual hasta el modelado detallado, fabricación, integración de sistemas, pruebas y documentación técnica. Fuerte interés en ingeniería automotriz, manufactura avanzada y desarrollo de producto.
+        </p>
+
+        <div class="links">
+          <span class="pill" data-en="Passion for innovation">Pasión por la innovación</span>
+          <a class="cta" href="#contact" data-en="Let's collaborate">Colaboremos</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Selected Projects</h2>
-      <ul>
-        <li>
-          <strong>Accelerated Rail System</strong><br>
-          Designed and built a 2 m aluminum rail driven by a NEMA 23 motor,
-          belt-pulley transmission, and Raspberry Pi Pico control. Focus on
-          precision motion and manufacturability.
-        </li>
-        <li>
-          <strong>Granular Flow in Accelerated Containers</strong><br>
-          Master’s thesis analyzing internal and external dynamics of granular
-          media under acceleration for agricultural seeding applications.
-        </li>
-      </ul>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio section" aria-labelledby="portfolio-title">
+      <h3 id="portfolio-title" data-en="Portfolio">Portfolio</h3>
+      <div class="grid" role="list">
+        <!-- Cada card puede tener data-* como data-repo para enlazar su repo GitHub -->
+
+        <article class="card" role="listitem">
+          <img src="img/Drone.jpeg" alt="Proyecto: Drone colaborativo con raspberry Pi 5">
+          <div class="title" data-en="Mouse for disable people">Drone colaborativo con raspberry Pi 5</div>
+          <div class="meta" data-en="Cameras in airsoft barrel; button trigger, SD storage.">Integración de sistemas electrónicos en drones multirrotor, Integración de Raspberry Pi para procesamiento a bordo, Implementación de comunicación MAVLink, Implementación de visión artificial con OpenCV, Detección y seguimiento de objetos, Configuración de telemetría</div>
+          <div class="card-actions">
+            <a class="github-btn" href="#" data-repo="https://github.com/andrescifwork-dev/eye-face-tracking-mouse-controller" aria-label="GitHub repo" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+          </div>
+        </article>
+        
+        <article class="card" role="listitem">
+          <img src="img/hammer and mechanical system.png" alt="Proyecto: Máquina de pruebas Pummel">
+          <div class="title" data-en="Pummel test machine">Máquina de pruebas Pummel</div>
+          <div class="meta" data-en="Mechanical design + control; automated testing.">Diseño CAD y fabricación de prototipo, Contribución a registro de propiedad industrial ante el IMPI, desarrollo de firmware en Raspberry Pi Pico (MicroPython) para control de secuencias 
+            de prueba, integración de sensores y actuadores, y ejecución de 2 validaciones en entorno real. Responsable de documentación técnica y presentación a clientes para demostración funcional.</div>
+          <div class="card-actions">
+            <a class="github-btn" href="#" aria-label="GitHub repo" data-repo="https://github.com/andrescifwork-dev/pummel-test-machine-control" title="GitHub">
+              <!-- simple SVG icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="img/linux system update upgrade.jpg" alt="Proyecto: Sistema radar acustico para la localización">
+          <div class="title" data-en="Acoustic Localization System Raspberry Pi 5">Sistema radar acustico para localización de fuentes relevantes</div>
+          <div class="meta" data-en="OpenCV + MediaPipe for eye/mouth control.">Procesamiento de señales y detección acústica con Raspberry Pi 5.
+            Descripción: Prototipo para detección y localización acústica usando Raspberry Pi 5, sensores de sonido y protocolos serie industriales (RS485). Incluye adquisición de datos, post-procesado y validación en pruebas controladas; integración con panel de control para análisis de eventos.</div>
+          <div class="card-actions">
+            <a class="github-btn" href="#" data-repo="https://github.com/andrescifwork-dev/Acoustic-Localization-System-Raspberry-Pi-5" aria-label="GitHub repo" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- más tarjetas -->
+        <article class="card" role="listitem">
+          <img src="img/Lidar on car 2.jpg" alt="Proyecto: Cursos de Micropython para docentes de eduacion media superior">
+          <div class="title" data-en="Dashboard & visualization">Sistema de mapeo lidar-GPS-Offline</div>
+          <div class="meta" data-en="Web interfaces & TCP/IP integration.">Interfaces web y comunicación TCP/IP para integración.
+            Descripción: Pipeline de adquisición LIDAR + GPS con almacenamiento offline y herramientas de visualización; backend ligero que expone resultados vía TCP/IP a dashboards web para análisis y validación de rutas. Enfoque en robustez de datos y sincronización temporal.</div>
+          <div class="card-actions">
+            <a class="github-btn" href="#" data-repo="https://github.com/andrescifwork-dev/gps-lidar-offline-mapping-system" aria-label="GitHub repo" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?w=1200&q=60&auto=format&fit=crop" alt="¿Que realize en cada proyecto?">
+          <div class="title" data-en="Home elevator — Siemens LOGO">¿Que realize en cada proyecto?</div>
+          <div class="meta" data-en="3-stop control, safe sensor logic.">Para cada proyecto desempeñe un desarrollo completo en cada area que se requeria. Desde el levantamiento formal de los requerimientos, 
+            hasta el desarrollo completo de los mismos, realizando labor de investigacion, desarrollo, integracion de HW/SW, presentacion de avance a clientes, pruebas de campo, 
+            realizacion de documentacion correspondientes.</div>
+          <div class="card-actions">
+            </a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=60&auto=format&fit=crop" alt="Proyecto: Integración sistemas">
+          <div class="title" data-en="Video & network integration">Integración de video y redes</div>
+          <div class="meta" data-en="Pre/post sales & system integration of video networks.">Proyectos de pre/post venta con sistemas de video y redes TCP/IP.</div>
+          <div class="card-actions">
+            <a class="github-btn" href="#" data-repo="#" aria-label="GitHub repo" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Education</h2>
-      <p>
-        <strong>M.Sc. in Thermofluids</strong> – In progress<br>
-        <em>Thesis:</em> Internal and External Dynamics in Accelerated Flat Silos
+  <!-- EDUCACIÓN (ARRIBA DE TODO) -->
+  <section id="education" class="section"></section>
+  <h3 id="education-title" data-en="Education">Educacion</h3>
+  <div class="education-top-card">
+  <div class="education-content">
+
+    <h4 data-en="Education">Educación</h4>
+
+    <div class="edu-item">
+      <h5 data-en="M.Sc. in Thermofluids Engineering">
+        Maestría en Ingeniería en Termofluidos
+      </h5>
+      <p class="edu-desc" 
+         data-en="Research focused on dynamic behavior of granular media in accelerated systems.">
+        Investigación enfocada en la dinámica de medios granulares en sistemas acelerados.
       </p>
-      <p>
-        <strong>B.Sc. in Mechatronics Engineering</strong>
+    </div>
+
+    <div class="edu-item">
+      <h5 data-en="B.Sc. in Mechatronics Engineering">
+        Ingeniería en Mecatrónica
+      </h5>
+      <p class="edu-desc"
+         data-en="Specialization in embedded systems, control engineering and advanced manufacturing.">
+        Especialización en sistemas embebidos, ingeniería de control y manufactura avanzada.
       </p>
+    </div>
+
+  </div>
+</div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section"></section>
+    <h3 id="experience-title" data-en="Experience">Experiencia</h3>
+    <div class="two-col section">
+      <section id="experience" class="box" aria-labelledby="edu-title">
+
+        <h4 id="edu-title" data-en="experience">Experiencia Administrativa</h4>
+        <div class="stack">   
+          <div class="exp-item">
+  <div class="badge alt">01</div>
+  <div class="item-body">
+    <h5 data-en="Project Development Engineer">Ingeniero de Desarrollo de Proyectos</h5>
+    <p data-en="Development of technical and economic project proposals, including scope definition, feasibility analysis and cost structuring for engineering solutions.">
+      Desarrollo de propuestas técnico-económicas de proyectos, incluyendo definición de alcance, análisis de viabilidad y estructuración de costos para soluciones de ingeniería.
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge alt">02</div>
+  <div class="item-body">
+    <h5 data-en="Technical Documentation Specialist">Especialista en Documentación Técnica</h5>
+    <p data-en="Preparation of formal technical documentation (FET, technical reports, specifications and compliance documents) aligned with institutional and regulatory requirements.">
+      Elaboración de documentación técnica formal (FET, memorias técnicas, especificaciones y documentos de cumplimiento) alineada a requerimientos institucionales y normativos.
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge alt">03</div>
+  <div class="item-body">
+    <h5 data-en="Technical Support & Training Coordinator">Coordinador de Soporte y Capacitación Técnica</h5>
+    <p data-en="Delivery of basic technical training sessions, system presentations and operational guidance for multidisciplinary teams and end users.">
+      Impartición de capacitaciones técnicas básicas, presentaciones de sistemas y acompañamiento operativo para equipos multidisciplinarios y usuarios finales.
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge alt">04</div>
+  <div class="item-body">
+    <h5 data-en="Technical Bid & Proposal Analyst">Analista Técnico en Licitaciones y Propuestas</h5>
+    <p data-en="Participation in public and private bidding processes, including technical compliance analysis, requirement mapping and preparation of supporting documentation.">
+      Participación en procesos de licitación pública y privada, incluyendo análisis de cumplimiento técnico, mapeo de requerimientos y preparación de documentación soporte.
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge alt">05</div>
+  <div class="item-body">
+    <h5 data-en="Project Planning & Coordination">Planeación y Coordinación de Proyectos</h5>
+    <p data-en="Project planning using CPM methodology, task scheduling, resource coordination and technical follow-up to ensure timely execution.">
+      Planeación de proyectos mediante metodología CPM, programación de actividades, coordinación de recursos y seguimiento técnico para asegurar la ejecución en tiempo.
+    </p>
+  </div>
+</div>
+
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+
+      <section id="experience" class="box" aria-labelledby="exp-title">
+        <h4 id="exp-title" data-en="Experience">Experiencia Técnica</h4>
+        <div class="stack">
+
+          <div class="exp-item">
+  <div class="badge">01</div>
+  <div class="item-body">
+    <h5 data-en="Embedded Systems Engineer">Ingeniero de Sistemas Embebidos</h5>
+    <p data-en="Design and development of embedded solutions using Raspberry Pi and microcontrollers — 2021–Present">
+      Diseño y desarrollo de soluciones embebidas utilizando Raspberry Pi y microcontroladores — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">02</div>
+  <div class="item-body">
+    <h5 data-en="UAV Systems Developer">Desarrollador de Sistemas UAV</h5>
+    <p data-en="Integration, configuration and testing of multirotor drone platforms (ESC, brushless motors, flight controllers, telemetry) — 2022–Present">
+      Integración, configuración y pruebas de plataformas de drones multirrotor (ESC, motores brushless, controladores de vuelo, telemetría) — 2022–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">03</div>
+  <div class="item-body">
+    <h5 data-en="Computer Vision Engineer">Ingeniero en Visión por Computadora</h5>
+    <p data-en="Implementation of real-time computer vision systems using OpenCV for object detection and autonomous navigation — 2022–Present">
+      Implementación de sistemas de visión artificial en tiempo real con OpenCV para detección de objetos y navegación autónoma — 2022–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">04</div>
+  <div class="item-body">
+    <h5 data-en="Mechatronic Systems Designer">Diseñador de Sistemas Mecatrónicos</h5>
+    <p data-en="Mechanical design, prototyping and validation of dynamic systems including accelerated rail platforms and granular flow applications — 2021–Present">
+      Diseño mecánico, prototipado y validación de sistemas dinámicos incluyendo plataformas de riel acelerado y aplicaciones de flujo granular — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">05</div>
+  <div class="item-body">
+    <h5 data-en="Control Systems Engineer">Ingeniero de Control</h5>
+    <p data-en="Development and tuning of PID-based control systems, hardware-software integration and system-level testing — 2021–Present">
+      Desarrollo y ajuste de sistemas de control basados en PID, integración hardware-software y pruebas a nivel sistema — 2021–Presente
+    </p>
+  </div>
+</div>
+<div class="exp-item">
+  <div class="badge">06</div>
+  <div class="item-body">
+    <h5 data-en="Additive Manufacturing & Prototyping">Manufactura Aditiva y Prototipado</h5>
+    <p data-en="FDM 3D printing, design for manufacturing (DFM), mechanical assembly and functional validation of engineering prototypes — 2021–Present">
+      Impresión 3D FDM, diseño para manufactura (DFM), ensamble mecánico y validación funcional de prototipos de ingeniería — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">07</div>
+  <div class="item-body">
+    <h5 data-en="Industrial Property & Patent Procedures">Propiedad Industrial y Procedimientos de Patente</h5>
+    <p data-en="Patent protection procedures before IMPI, prior art research, technical drafting and innovation strategy development — 2022–Present">
+      Procedimientos de protección de patente ante el IMPI, búsqueda de antecedentes técnicos, redacción técnica y desarrollo de estrategia de innovación — 2022–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">08</div>
+  <div class="item-body">
+    <h5 data-en="Mechanical Design & CAD Modeling">Diseño Mecánico y Modelado CAD</h5>
+    <p data-en="Advanced 3D modeling in Fusion 360, mechanical system design, tolerance analysis and structural validation — 2021–Present">
+      Modelado 3D avanzado en Fusion 360, diseño de sistemas mecánicos, análisis de tolerancias y validación estructural — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">09</div>
+  <div class="item-body">
+    <h5 data-en="Control Systems & Automation">Sistemas de Control y Automatización</h5>
+    <p data-en="PID controller tuning, dynamic system integration, actuator control and system-level performance testing — 2021–Present">
+      Ajuste de controladores PID, integración de sistemas dinámicos, control de actuadores y pruebas de desempeño a nivel sistema — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">10</div>
+  <div class="item-body">
+    <h5 data-en="Embedded & High-Performance Systems">Sistemas Embebidos y Plataformas de Alto Desempeño</h5>
+    <p data-en="Embedded development with Raspberry Pi and microcontrollers, real-time processing and hardware-software integration — 2021–Present">
+      Desarrollo embebido con Raspberry Pi y microcontroladores, procesamiento en tiempo real e integración hardware-software — 2021–Presente
+    </p>
+  </div>
+</div>
+
+<div class="exp-item">
+  <div class="badge">11</div>
+  <div class="item-body">
+    <h5 data-en="Granular Flow & Experimental Systems">Flujo Granular y Sistemas Experimentales</h5>
+    <p data-en="Design and experimental validation of accelerated granular flow systems for controlled mass distribution applications — 2023–Present">
+      Diseño y validación experimental de sistemas acelerados de flujo granular para aplicaciones de distribución controlada de masa — 2023–Presente
+    </p>
+  </div>
+</div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Skills & Languages -->
+    <section id="skills" class="section">
+      <h4 class="muted" data-en="Skills">Habilidades</h4>
+
+      <!-- SKILLS GRID:
+           Cambia el porcentaje editando el atributo data-percent en cada .skill (ej. data-percent="86")
+           El JS aplicará la anchura y mostrará el número automáticamente.
+      -->
+      <div class="skills-grid" role="list">
+        <div class="skill" data-percent="80" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="SOLIDWORKS">SOLIDWORKS</div>
+            <div class="skill-sub" data-en="Mechanical Design, Prototiping, Rendering and simulations">Diseño de elementos mecánicos, prototipado, renderizado y simulaciones</div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">80%</span></div>
+          </div>
+        </div>
+
+        <div class="skill" data-percent="80" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="FUSION 360">FUSION 360</div>
+            <div class="skill-sub" data-en="Diseño de elementos mecanicos, renderizado y animaciones">Diseño de elementos mecánicos, prototipado, renderizado y simulaciones</div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">80%</span></div>
+          </div>
+        </div>
+
+        <div class="skill" data-percent="72" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="Reverse Engineering with Photogrametry">Ingeniería inversa con fotogrametria</div>
+            <div class="skill-sub" data-en="3D scanning, ">Uso de </div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">72%</span></div>
+          </div>
+        </div>
+
+        <div class="skill" data-percent="70" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="Web / TCP-IP">Python / C++ / Java</div>
+            <div class="skill-sub" data-en="Dashboards & integration">Dashboards e integración</div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">70%</span></div>
+          </div>
+        </div>
+
+        <div class="skill" data-percent="60" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="Python / Scripting">Desarrollo de proyectos / Prototipado </div>
+            <div class="skill-sub" data-en="Automation & data processing">Automatización y procesamiento de datos</div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">60%</span></div>
+          </div>
+        </div>
+
+        <div class="skill" data-percent="50" role="listitem">
+          <div class="meta">
+            <div class="skill-title" data-en="UI / Prototyping">Soporte y Atención al cliente</div>
+            <div class="skill-sub" data-en="Design & prototyping">Diseño y prototipado</div>
+            <div class="bar" aria-hidden="true"><i></i><span class="pct">50%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section languages" style="margin-top:18px">
+        <h4 class="muted" data-en="Languages">Idiomas</h4>
+        <div class="langs">
+          <div class="chip" data-en="Spanish — Native">Español — Nativo</div>
+          <div class="chip" data-en="English — Intermediate/Advanced">Inglés — B2 (Intermedio/Avanzado)</div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p>
-        Email · GitHub · LinkedIn
-      </p>
-    </section>
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h4 class="muted" data-en="Contact">Contacto</h4>
 
+      <div class="contact" aria-label="Contacto y datos">
+        <aside class="box contact-info" aria-labelledby="contact-info">
+          <h4 id="contact-info" data-en="Information">Información</h4>
+          <p class="muted" data-en="Engineer interested in computer vision, IoT and industrial control.">Alan — Ingeniero en sistemas embebidos. Interesado en proyectos de visión por computadora, IoT y control industrial.</p>
+          <ul class="contact-list">
+            <li data-en="Email">Email: <strong>alanrp.arp@outlook.com</strong></li>
+            <li data-en="Phone">Tel: <strong>+52 5522339927</strong></li>
+            <li data-en="Location">CDMX, Mex.</li>
+          </ul>
+
+          <div class="socials">
+            <a class="pill" href="https://github.com/andrescifwork-dev" data-en="GitHub">GitHub</a>
+            <a class="pill" href="https://candidato.mx.computrabajo.com/candidate/cv/edit/" data-en="Computrabajo">CompuTrabajo</a>
+            <a class="pill" href="https://www.linkedin.com/in/andres-fabian-cifuentes-muci%C3%B1o-6abb69385/" data-en="LinkedIn">LinkedIn</a>
+          </div>
+        </aside>
+      </div>
+    </section>
   </main>
-</body>
-</html>
 
+  <footer>
+    <div class="foot-wrap">
+      <div>
+        <strong data-en="Alan — Mechatronics Engineering">Andrés — Ingeniería</strong><br>
+        <small data-en="Embedded solutions · Computer vision · Integration">Soluciones embebidas · Visión por computadora · Integración</small>
+      </div>
+      <div>
+        <small>© <span id="anio"></span> — <span data-en="All rights reserved">Todos los derechos reservados</span></small>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // --------- Rellenar año ----------
+    document.getElementById('anio').textContent = new Date().getFullYear();
+
+    // --------- Skills: aplicar porcentajes desde data-percent ----------
+    // Para cambiar el porcentaje de una skill: edita el atributo data-percent="86" en el contenedor .skill
+    // (p. ej. <div class="skill" data-percent="86">)
+    (function applySkillPercents(){
+      document.querySelectorAll('.skill').forEach(skill=>{
+        const pct = parseInt(skill.getAttribute('data-percent') || '0',10);
+        const barInner = skill.querySelector('.bar i');
+        const pctLabel = skill.querySelector('.bar .pct');
+        barInner.style.width = Math.max(0, Math.min(100,pct)) + '%';
+        pctLabel.textContent = Math.max(0, Math.min(100,pct)) + '%';
+      });
+    })();
+
+    // --------- Language toggle (ES <-> EN) ----------
+    // Mechanism:
+    // - Elements with data-en attribute will swap innerHTML with that value when switching to English.
+    // - Inputs/textareas: use data-en-placeholder attribute for placeholder in English.
+    // - The lang button toggles and updates <html lang="..."> for accessibility.
+    const langBtn = document.getElementById('langToggle');
+    let lang = 'es'; // default
+    langBtn.addEventListener('click', ()=>{
+      lang = (lang === 'es') ? 'en' : 'es';
+      document.documentElement.lang = lang;
+      langBtn.setAttribute('aria-pressed', lang === 'en');
+      // swap all nodes with data-en
+      document.querySelectorAll('[data-en]').forEach(node=>{
+        if(lang === 'en'){
+          // store original Spanish if not stored
+          if(!node.dataset.esOriginal) node.dataset.esOriginal = node.innerHTML;
+          node.innerHTML = node.dataset.en;
+        } else {
+          // restore Spanish if exists
+          if(node.dataset.esOriginal) node.innerHTML = node.dataset.esOriginal;
+        }
+      });
+      // placeholders
+      document.querySelectorAll('input[data-en-placeholder], textarea[data-en-placeholder]').forEach(inp=>{
+        if(lang === 'en'){
+          if(!inp.dataset.esPlaceholder) inp.dataset.esPlaceholder = inp.placeholder || '';
+          inp.placeholder = inp.dataset.enPlaceholder;
+        } else {
+          inp.placeholder = inp.dataset.esPlaceholder || inp.placeholder;
+        }
+      });
+      // title and document title
+      const titleTag = document.querySelector('title');
+      if(titleTag && titleTag.dataset && titleTag.dataset.en){
+        if(lang === 'en'){
+          if(!titleTag.dataset.esOriginal) titleTag.dataset.esOriginal = titleTag.innerHTML;
+          titleTag.innerHTML = titleTag.dataset.en;
+        } else {
+          if(titleTag.dataset.esOriginal) titleTag.innerHTML = titleTag.dataset.esOriginal;
+        }
+      }
+      // update GitHub button titles (optional)
+      document.querySelectorAll('.github-btn').forEach(btn=>{
+        btn.title = (lang === 'en') ? 'GitHub' : 'GitHub';
+      });
+    });
+
+    // Optional: small behaviour to open GitHub repo (data-repo)
+    document.querySelectorAll('.github-btn').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const repo = btn.getAttribute('data-repo') || '#';
+        if(repo && repo !== '#'){
+          window.open(repo, '_blank');
+        } else {
+          // no repo configured: prevent action
+          e.preventDefault();
+          alert('No hay repositorio configurado (data-repo). / No repository configured (data-repo).');
+        }
+      });
+    });
+  </script>
+
+<!--Responsivo-->
+<script>
+  // nav toggle
+  (function(){
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    navToggle.addEventListener('click', ()=>{
+      const opened = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!opened));
+      mainNav.classList.toggle('open');
+    });
+  })();
+</script>
 </body>
 </html>
