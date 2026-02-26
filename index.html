@@ -3,551 +3,608 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title data-en="Resume — Your Name">CV Web Alan Rodríguez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
+  <title>Alan Rodríguez — Mechatronics Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f7f8fc; --surface:#ffffff; --surface2:#f0f2f8; --border:#e4e8f4;
+      --accent:#1a56ff; --accent2:#0033cc; --muted:#6b7280; --text:#0a0e1a;
+      --radius:16px; --shadow:0 4px 24px rgba(10,14,26,.07);
+      --shadow-md:0 8px 40px rgba(10,14,26,.10); --gap:24px; --maxw:1200px;
+      --transition:.25s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+    h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;line-height:1.15}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    ul{list-style:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+    .section{padding:80px 0}
+    .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .section-label::before{content:'';display:block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--text);margin-bottom:48px}
+    header{position:sticky;top:0;z-index:100;background:rgba(247,248,252,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text);white-space:nowrap}
+    .nav-links{display:flex;align-items:center;gap:6px}
+    .nav-links a{padding:7px 14px;border-radius:999px;font-size:.875rem;font-weight:500;color:var(--muted);transition:background var(--transition),color var(--transition)}
+    .nav-links a:hover{background:var(--surface2);color:var(--text)}
+    .nav-links a.active{background:var(--accent);color:#fff}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .lang-btn{background:transparent;border:1.5px solid var(--border);padding:6px 12px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.8rem;color:var(--accent);font-family:'DM Sans',sans-serif;transition:border-color var(--transition),background var(--transition)}
+    .lang-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .nav-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:8px;border-radius:8px;transition:background var(--transition)}
+    .nav-toggle:hover{background:var(--surface2)}
+    .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s;margin:5px 0}
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .hero-section{padding:100px 0 80px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(26,86,255,.06) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(26,86,255,.04) 0%,transparent 70%)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(26,86,255,.08);border:1px solid rgba(26,86,255,.15);padding:6px 14px;border-radius:999px;margin-bottom:24px;font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+    .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .hero-name{font-size:clamp(2.8rem,5vw,4.2rem);color:var(--text);letter-spacing:-.02em;margin-bottom:8px}
+    .hero-title{font-size:1.15rem;color:var(--muted);font-weight:400;margin-bottom:24px}
+    .hero-desc{font-size:1rem;color:var(--muted);max-width:52ch;line-height:1.7;margin-bottom:36px;text-align:justify}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+    .tag{background:var(--surface);border:1px solid var(--border);padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.9rem;transition:transform var(--transition),box-shadow var(--transition),background var(--transition);box-shadow:0 4px 20px rgba(26,86,255,.25)}
+    .btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(26,86,255,.3)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--border);color:var(--text);padding:12px 24px;border-radius:999px;font-weight:600;font-size:.9rem;transition:border-color var(--transition),box-shadow var(--transition),transform var(--transition)}
+    .btn-secondary:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(26,86,255,.1);transform:translateY(-2px)}
+    .btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.9rem;transition:transform var(--transition),box-shadow var(--transition),background var(--transition);box-shadow:0 4px 20px rgba(37,211,102,.25)}
+    .btn-whatsapp:hover{background:#1eba5a;transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.3)}
+    .hero-photo-wrap{position:relative}
+    .hero-photo-card{background:var(--surface);border-radius:24px;padding:24px;box-shadow:var(--shadow-md);border:1px solid var(--border);position:relative;overflow:hidden}
+    .hero-photo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),#7c9fff)}
+    .hero-photo-card img{width:100%;border-radius:14px;object-fit:cover;aspect-ratio:4/5}
+    .hero-card-badge{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);background:rgba(10,14,26,.85);backdrop-filter:blur(10px);color:#fff;padding:10px 20px;border-radius:12px;font-size:.8rem;font-weight:600;white-space:nowrap;border:1px solid rgba(255,255,255,.1)}
+    .stats-section{padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .stat-item{background:var(--surface);padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:4px;transition:background var(--transition)}
+    .stat-item:hover{background:var(--surface2)}
+    .stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent);line-height:1}
+    .stat-num sup{font-size:1rem}
+    .stat-label{font-size:.8rem;color:var(--muted);font-weight:500;text-align:center}
+    .timeline{position:relative}
+    .timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--border);border-radius:2px}
+    .timeline-item{position:relative;padding-left:56px;margin-bottom:40px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+    .timeline-item.visible{opacity:1;transform:translateY(0)}
+    .timeline-dot{position:absolute;left:0;top:4px;width:38px;height:38px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;box-shadow:0 4px 12px rgba(26,86,255,.3);z-index:1}
+    .timeline-dot.alt{background:#0033cc}
+    .timeline-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;transition:box-shadow var(--transition),border-color var(--transition)}
+    .timeline-card:hover{box-shadow:var(--shadow-md);border-color:rgba(26,86,255,.2)}
+    .timeline-card h5{font-size:1rem;margin-bottom:6px;color:var(--text)}
+    .timeline-card p{font-size:.875rem;color:var(--muted);line-height:1.6;text-align:justify}
+    .timeline-meta{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--accent);font-weight:600;background:rgba(26,86,255,.07);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+    .exp-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .exp-col-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease,box-shadow .25s,border-color .25s}
+    .skill-card.visible{opacity:1;transform:translateY(0)}
+    .skill-card:hover{box-shadow:var(--shadow-md);border-color:rgba(26,86,255,.2)}
+    .skill-card-title{font-weight:700;font-size:.95rem;margin-bottom:4px}
+    .skill-card-sub{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+    .skill-bar{height:6px;background:var(--surface2);border-radius:999px;overflow:hidden}
+    .skill-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#7c9fff);border-radius:999px;width:0;transition:width 1s cubic-bezier(.4,0,.2,1)}
+    .skill-pct{font-size:.75rem;font-weight:700;color:var(--accent);text-align:right;margin-top:6px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);display:flex;flex-direction:column}
+    .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(26,86,255,.2)}
+    .project-img{width:100%;height:160px;object-fit:cover;display:block}
+    .project-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .project-title{font-size:.95rem;font-weight:700}
+    .project-desc{font-size:.82rem;color:var(--muted);line-height:1.6;flex:1;text-align:justify}
+    .project-footer{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:flex-end}
+    .github-pill{display:inline-flex;align-items:center;gap:6px;background:var(--text);color:#fff;padding:7px 14px;border-radius:999px;font-size:.78rem;font-weight:600;transition:background var(--transition),transform var(--transition)}
+    .github-pill:hover{background:var(--accent);transform:translateY(-2px)}
+    .edu-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 26px;position:relative;overflow:hidden;transition:box-shadow var(--transition),border-color var(--transition)}
+    .edu-card:hover{box-shadow:var(--shadow-md);border-color:rgba(26,86,255,.2)}
+    .edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#7c9fff)}
+    .edu-card-icon{width:44px;height:44px;border-radius:12px;background:rgba(26,86,255,.08);color:var(--accent);display:grid;place-items:center;margin-bottom:16px;font-size:1.2rem}
+    .edu-card h5{font-size:1.05rem;margin-bottom:8px}
+    .edu-card p{font-size:.875rem;color:var(--muted);line-height:1.6}
+    .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease,box-shadow .25s,border-color .25s}
+    .cert-card.visible{opacity:1;transform:translateY(0)}
+    .cert-card:hover{box-shadow:var(--shadow-md);border-color:rgba(26,86,255,.2);transform:translateY(-4px)}
+    .cert-icon{width:40px;height:40px;border-radius:10px;background:rgba(26,86,255,.08);display:grid;place-items:center;color:var(--accent);font-size:1.1rem}
+    .cert-name{font-weight:700;font-size:.9rem;line-height:1.3}
+    .cert-org{font-size:.8rem;color:var(--muted)}
+    .cert-year{font-size:.75rem;font-weight:700;background:rgba(26,86,255,.07);color:var(--accent);padding:3px 10px;border-radius:999px;align-self:flex-start}
+    .cert-status{font-size:.75rem;font-weight:600;background:rgba(37,211,102,.1);color:#16a34a;padding:3px 10px;border-radius:999px;align-self:flex-start}
+    .langs-grid{display:flex;gap:16px;flex-wrap:wrap}
+    .lang-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;min-width:180px;flex:1;transition:box-shadow var(--transition)}
+    .lang-card:hover{box-shadow:var(--shadow)}
+    .lang-card-name{font-weight:700;margin-bottom:4px}
+    .lang-card-level{font-size:.85rem;color:var(--muted)}
+    .lang-dots{display:flex;gap:4px;margin-top:10px}
+    .lang-dot{width:10px;height:10px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--border)}
+    .lang-dot.filled{background:var(--accent);border-color:var(--accent)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+    .contact-info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+    .contact-info-card h4{font-size:1.1rem;margin-bottom:8px}
+    .contact-info-card .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+    .contact-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+    .contact-row:last-of-type{border-bottom:none}
+    .contact-icon{width:38px;height:38px;border-radius:10px;background:rgba(26,86,255,.07);color:var(--accent);display:grid;place-items:center;flex-shrink:0;font-size:.95rem}
+    .contact-row-label{font-size:.75rem;color:var(--muted)}
+    .contact-row-val{font-weight:600;font-size:.9rem}
+    .contact-actions-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+    .contact-actions-card h4{font-size:1.1rem;margin-bottom:4px}
+    .contact-actions-card p{font-size:.88rem;color:var(--muted);margin-bottom:10px}
+    .contact-btn-full{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:12px;font-weight:700;font-size:.9rem;transition:transform var(--transition),box-shadow var(--transition),opacity var(--transition);cursor:pointer;border:none;font-family:inherit}
+    .contact-btn-full:hover{transform:translateY(-2px);opacity:.92}
+    .btn-wa{background:#25d366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.25)}
+    .btn-email{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(26,86,255,.25)}
+    .btn-li{background:#0077b5;color:#fff;box-shadow:0 4px 16px rgba(0,119,181,.25);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:12px;font-weight:700;font-size:.9rem;transition:transform var(--transition),opacity var(--transition)}
+    .btn-li:hover{transform:translateY(-2px);opacity:.92}
+    .socials-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+    .social-pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:600;color:var(--text);transition:background var(--transition),border-color var(--transition),transform var(--transition)}
+    .social-pill:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px)}
+    footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 0}
+    .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .foot-logo{font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:.95rem}
+    .foot-copy{font-size:.8rem}
+    .divider{width:100%;height:1px;background:var(--border)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:1080px){
+      .hero-grid{grid-template-columns:1fr 340px;gap:40px}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .certs-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:860px){
+      .nav-links{display:none}
+      .nav-toggle{display:flex;flex-direction:column;justify-content:center}
+      .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 28px;gap:4px;z-index:99;box-shadow:var(--shadow-md)}
+      .nav-links.open a{padding:10px 14px;width:100%}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-photo-wrap{display:none}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .exp-cols{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .edu-cards{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:540px){
+      .wrap{padding:0 16px}
+      .hero-section{padding:60px 0 40px}
+      .projects-grid{grid-template-columns:1fr}
+      .certs-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-actions{flex-direction:column;align-items:flex-start}
+      .btn-primary,.btn-secondary,.btn-whatsapp{width:100%;justify-content:center}
+    }
+  </style>
 </head>
 <body>
+
   <header>
-  <div class="wrap nav" role="banner">
-    <div class="left-row" style="display:flex;align-items:center;gap:12px">
-      <button id="langToggle" class="lang-btn" aria-pressed="false" title="Cambiar idioma / Change language">
-        ES ⇄ EN
-      </button>
-
-      <div class="logo" aria-label="logo"> Alan Eduardo Rodríguez Pérez</div>
+    <div class="wrap">
+      <nav class="nav-inner">
+        <div class="nav-logo" data-en="Alan — Mechatronics Engineer">Alan — Ing. Mecatrónico</div>
+        <ul class="nav-links" id="mainNav">
+          <li><a href="#portfolio" data-en="Projects">Proyectos</a></li>
+          <li><a href="#education" data-en="Education">Educación</a></li>
+          <li><a href="#experience" data-en="Experience">Experiencia</a></li>
+          <li><a href="#certifications" data-en="Certifications">Certificaciones</a></li>
+          <li><a href="#skills" data-en="Skills">Habilidades</a></li>
+          <li><a href="#contact" class="active" data-en="Contact">Contacto</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="lang-btn" id="langToggle" aria-pressed="false">ES &#8644; EN</button>
+          <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
     </div>
+  </header>
 
-    <!-- hamburger (visible en pantallas pequeñas) -->
-    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
-      <span class="bars" aria-hidden="true">☰</span>
-    </button>
+  <main>
 
-    <nav id="mainNav" class="main-nav" aria-label="main navigation">
-      <ul>
-        <li><a href="#portfolio" data-en="Portfolio">Portfolio</a></li>
-        <li><a href="#education" data-en="Education">Educación</a></li>
-        <li><a href="#experience" data-en="Experience">Experiencia</a></li>
-        <li><a href="#skills" data-en="Skills">Habilidades</a></li>
-        <li><a href="#contact" class="cta" data-en="Contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-  <main class="wrap" role="main">
-    <!-- HERO -->
-    <section class="hero section" aria-label="presentación">
-      <div class="photo" aria-hidden="true">
-        <!-- reemplaza por tu foto -->
-        <img src="img/foto curr.jpeg" alt="Foto personal">
-      </div>
-
-      <div class="intro">
-        <h4 data-en="Hey, I'm">Hola, soy</h4>
-        <h1 data-en="Alan — Mechatronics Engineer">Alan Rodríguez — Ingeniero Mecatrónico</h1>
-        <div class="roles" data-en="Embedded • Product Design • Mechanical Design">Desarrollo de Proyectos • Diseño Mecanico • Diseño de productos </div>
-        <p data-en="Hands-on experience designing and manufacturing functional test equipment,
-developing electromechanical systems, and supporting applied research projects
-for government and academic institutions. Proven ability to take projects from
-conceptual design to physical prototyping, validation, and documentation.
-Career focus on automotive engineering, advanced manufacturing, and product
-development environments.....">
-          Experiencia práctica en diseño, manufactura, ensamble y validación de equipos de prueba y sistemas electromecánicos. Capacidad para gestionar proyectos desde la etapa conceptual hasta el modelado detallado, fabricación, integración de sistemas, pruebas y documentación técnica. Fuerte interés en ingeniería automotriz, manufactura avanzada y desarrollo de producto.
-        </p>
-
-        <div class="links">
-          <span class="pill" data-en="Passion for innovation">Pasión por la innovación</span>
-          <a class="cta" href="#contact" data-en="Let's collaborate">Colaboremos</a>
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <span class="dot"></span>
+              <span data-en="Available for new projects">Disponible para nuevos proyectos</span>
+            </div>
+            <h1 class="hero-name">Alan <span style="color:var(--accent)">Rodríguez</span><br><span data-en="Mechatronics Engineer">Ing. Mecatrónico</span></h1>
+            <p class="hero-title" data-en="Product Design · Mechanical Design · R&D">Diseño de Producto · Diseño Mecánico · I+D</p>
+            <p class="hero-desc" data-en="Mechatronics Engineer with 3+ years of hands-on experience in mechanical/electromechanical design, CAD/CAE simulations (ANSYS, CATIA), prototype development and validation, root cause analysis, and cross-functional collaboration for defense, industrial, and research sectors. Pursuing MS in Thermofluids at IPN-ESIME. Two IMPI registrations. Focused on automotive engineering, advanced manufacturing, and product development.">
+              Ingeniero Mecatrónico con 3+ años de experiencia en diseño mecánico/electromecánico, simulaciones CAD/CAE (ANSYS, CATIA), desarrollo y validación de prototipos, análisis de causa raíz y colaboración multidisciplinaria para sectores de defensa, industrial e investigación. Cursando Maestría en Termofluidos en el IPN-ESIME. Dos registros ante el IMPI. Enfocado en ingeniería automotriz, manufactura avanzada y desarrollo de producto.
+            </p>
+            <div class="hero-tags">
+              <span class="tag" data-en="SolidWorks / CATIA">SolidWorks / CATIA</span>
+              <span class="tag" data-en="ANSYS / CAE">ANSYS / CAE</span>
+              <span class="tag" data-en="Computer Vision">Visión Artificial</span>
+              <span class="tag" data-en="Embedded Systems">Sistemas Embebidos</span>
+              <span class="tag" data-en="DFMEA / APQP">DFMEA / APQP</span>
+              <span class="tag" data-en="3D Printing / DFM">Impresión 3D / DFM</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn-whatsapp" id="waBtn"
+                 href="https://wa.me/525522339927?text=Hola%20Alan%2C%20vimos%20tu%20curr%C3%ADculum%20y%20nos%20interesa%20colaborar%20contigo%20en%20un%20proyecto%20%F0%9F%91%8B"
+                 target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span data-en="Let's talk on WhatsApp">Hablemos por WhatsApp</span>
+              </a>
+              <a class="btn-secondary" href="#" onclick="downloadCV(event)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-en="Download CV">Descargar CV</span>
+              </a>
+              <a class="btn-primary" href="#contact">
+                <span data-en="Contact me">Contáctame</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-card">
+              <img src="img/fotoCV.png" alt="Alan Eduardo Rodríguez Pérez">
+              <div class="hero-card-badge" data-en="Mexico City, MX">Ciudad de México, MX</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="portfolio section" aria-labelledby="portfolio-title">
-      <h3 id="portfolio-title" data-en="Portfolio">Portfolio</h3>
-      <div class="grid" role="list">
-        <!-- Cada card puede tener data-* como data-repo para enlazar su repo GitHub -->
-
-        <article class="card" role="listitem">
-          <img src="img/Drone.jpeg" alt="Proyecto: Drone colaborativo con raspberry Pi 5">
-          <div class="title" data-en="Mouse for disable people">Drone colaborativo con raspberry Pi 5</div>
-          <div class="meta" data-en="Cameras in airsoft barrel; button trigger, SD storage.">Integración de sistemas electrónicos en drones multirrotor, Integración de Raspberry Pi para procesamiento a bordo, Implementación de comunicación MAVLink, Implementación de visión artificial con OpenCV, Detección y seguimiento de objetos, Configuración de telemetría</div>
-          <div class="card-actions">
-            <a class="github-btn" href="#" data-repo="" aria-label="GitHub repo" title="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-            </a>
-          </div>
-        </article>
-        
-        <article class="card" role="listitem">
-          <img src="img/hammer and mechanical system.png" alt="Proyecto: Máquina de pruebas Pummel">
-          <div class="title" data-en="Pummel test machine">Máquina de pruebas Pummel</div>
-          <div class="meta" data-en="Mechanical design + control; automated testing.">Diseño CAD y fabricación de prototipo, Contribución a registro de propiedad industrial ante el IMPI, desarrollo de firmware en Raspberry Pi Pico (MicroPython) para control de secuencias 
-            de prueba, integración de sensores y actuadores, y ejecución de 2 validaciones en entorno real. Responsable de documentación técnica y presentación a clientes para demostración funcional.</div>
-          <div class="card-actions">
-            <a class="github-btn" href="#" aria-label="GitHub repo" data-repo="" title="GitHub">
-              <!-- simple SVG icon -->
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <img src="img/radar.jpeg" alt="Proyecto: Sistema radar acustico para la localización">
-          <div class="title" data-en="Acoustic Localization System Raspberry Pi 5">Sistema radar acustico para localización de fuentes relevantes</div>
-          <div class="meta" data-en="OpenCV + MediaPipe for eye/mouth control.">Procesamiento de señales y detección acústica con Raspberry Pi 5.
-            Descripción: Prototipo para detección y localización acústica usando Raspberry Pi 5, sensores de sonido y protocolos serie industriales (RS485). Incluye adquisición de datos, post-procesado y validación en pruebas controladas; integración con panel de control para análisis de eventos.</div>
-          <div class="card-actions">
-            <a class="github-btn" href="#" data-repo="" aria-label="GitHub repo" title="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- más tarjetas -->
-        <article class="card" role="listitem">
-          <img src="img/Lidar on car 2.jpg" alt="Proyecto: Cursos de Micropython para docentes de eduacion media superior">
-          <div class="title" data-en="Dashboard & visualization">Sistema de mapeo lidar-GPS-Offline</div>
-          <div class="meta" data-en="Web interfaces & TCP/IP integration.">Interfaces web y comunicación TCP/IP para integración.
-            Descripción: Pipeline de adquisición LIDAR + GPS con almacenamiento offline y herramientas de visualización; backend ligero que expone resultados vía TCP/IP a dashboards web para análisis y validación de rutas. Enfoque en robustez de datos y sincronización temporal.</div>
-          <div class="card-actions">
-            <a class="github-btn" href="#" data-repo="" aria-label="GitHub repo" title="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?w=1200&q=60&auto=format&fit=crop" alt="¿Que realize en cada proyecto?">
-          <div class="title" data-en="Home elevator — Siemens LOGO">¿Que realicé en cada proyecto?</div>
-          <div class="meta" data-en="3-stop control, safe sensor logic.">Para cada proyecto desempeñe un desarrollo completo en cada area que se requeria. Desde el levantamiento formal de los requerimientos, 
-            hasta el desarrollo completo de los mismos, realizando labor de investigacion, desarrollo, integracion de HW/SW, presentacion de avance a clientes, pruebas de campo, 
-            realizacion de documentacion correspondientes.</div>
-          <div class="card-actions">
-            </a>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=60&auto=format&fit=crop" alt="Proyecto: Integración sistemas">
-          <div class="title" data-en="Video & network integration">Integración de video y redes</div>
-          <div class="meta" data-en="Pre/post sales & system integration of video networks.">Proyectos de pre/post venta con sistemas de video y redes TCP/IP.</div>
-          <div class="card-actions">
-            <a class="github-btn" href="#" data-repo="#" aria-label="GitHub repo" title="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5 0-.2 0-.9 0-1.8-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5 1 0 2 .2 2.9.5 2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9 0 1.4 0 2.6 0 3 .1.3.3.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
-            </a>
-          </div>
-        </article>
+    <section class="stats-section">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-num" data-target="3">0<sup>+</sup></div><div class="stat-label" data-en="Years of experience">Años de experiencia</div></div>
+          <div class="stat-item"><div class="stat-num" data-target="5">0</div><div class="stat-label" data-en="Key projects">Proyectos clave</div></div>
+          <div class="stat-item"><div class="stat-num" data-target="2">0</div><div class="stat-label" data-en="IMPI registrations">Registros IMPI</div></div>
+          <div class="stat-item"><div class="stat-num" data-target="2">0</div><div class="stat-label" data-en="Academic degrees">Grados académicos</div></div>
+        </div>
       </div>
     </section>
 
-  <!-- EDUCACIÓN (ARRIBA DE TODO) -->
-  <section id="education" class="section"></section>
-  <h3 id="education-title" data-en="Education">Educacion</h3>
-  <div class="education-top-card">
-  <div class="education-content">
+    <section id="portfolio" class="section">
+      <div class="wrap">
+        <div class="section-label" data-en="Selected Work">Trabajo Seleccionado</div>
+        <h2 class="section-title" data-en="Portfolio">Portfolio</h2>
+        <div class="projects-grid">
 
-    <h4 data-en="Education">Educación</h4>
+          <article class="project-card reveal">
+            <img class="project-img" src="img/Drone.jpeg" alt="Drone colaborativo Raspberry Pi 5">
+            <div class="project-body">
+              <div class="project-title" data-en="Collaborative Drone · Raspberry Pi 5">Drone colaborativo · Raspberry Pi 5</div>
+              <div class="project-desc" data-en="MAVLink communication, onboard processing with Raspberry Pi 5, real-time object detection and tracking with OpenCV, telemetry configuration.">Integración de Raspberry Pi para procesamiento a bordo, comunicación MAVLink, visión artificial con OpenCV para detección y seguimiento de objetos, configuración de telemetría.</div>
+            </div>
+            <div class="project-footer">
+              <a class="github-pill" href="https://github.com/andrescifwork-dev/eye-face-tracking-mouse-controller" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9v3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
 
-    <div class="edu-item">
-      <h5 data-en="M.Sc. in Thermofluids Engineering">
-        Maestría en Ingeniería en Termofluidos
-      </h5>
-      <p class="edu-desc" 
-         data-en="Research focused on dynamic behavior of granular media in accelerated systems.">
-        Investigación enfocada en la dinámica de medios granulares en sistemas acelerados.
-      </p>
-    </div>
+          <article class="project-card reveal">
+            <img class="project-img" src="img/hammer and mechanical system.png" alt="Máquina de pruebas adhesión vidrio balístico">
+            <div class="project-body">
+              <div class="project-title" data-en="Adhesion Testing Machine — Ballistic Glass (IMPI)">Máquina de adhesión — Vidrio balístico (IMPI)</div>
+              <div class="project-desc" data-en="Led design, manufacturing, assembly, validation and methodology definition using CATIA/ANSYS. IMPI-registered. Focused on packaging, experimental testing and failure analysis — directly applicable to automotive part development.">Diseño, manufactura, ensamble, validación y metodología con CATIA/ANSYS. Registro IMPI. Pruebas experimentales y análisis de falla aplicables al desarrollo de piezas automotrices.</div>
+            </div>
+            <div class="project-footer">
+              <a class="github-pill" href="https://github.com/andrescifwork-dev/pummel-test-machine-control" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9v3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
 
-    <div class="edu-item">
-      <h5 data-en="B.Sc. in Mechatronics Engineering">
-        Ingeniería en Mecatrónica
-      </h5>
-      <p class="edu-desc"
-         data-en="Specialization in embedded systems, control engineering and advanced manufacturing.">
-        Especialización en sistemas embebidos, ingeniería de control y manufactura avanzada.
-      </p>
-    </div>
+          <article class="project-card reveal">
+            <img class="project-img" src="img/linux system update upgrade.jpg" alt="Sistema de localización acústica">
+            <div class="project-body">
+              <div class="project-title" data-en="Acoustic Localization System">Sistema de localización acústica</div>
+              <div class="project-desc" data-en="Acoustic detection prototype with Raspberry Pi 5, sound sensors and RS485 protocol. Data acquisition, post-processing, and validation; integration with control panel for event analysis.">Prototipo de detección acústica con Raspberry Pi 5, sensores RS485. Adquisición de datos, post-procesado y validación; panel de control para análisis de eventos.</div>
+            </div>
+            <div class="project-footer">
+              <a class="github-pill" href="https://github.com/andrescifwork-dev/Acoustic-Localization-System-Raspberry-Pi-5" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9v3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
 
-  </div>
-</div>
+          <article class="project-card reveal">
+            <img class="project-img" src="img/Lidar on car 2.jpg" alt="Sistema LIDAR-GPS Offline">
+            <div class="project-body">
+              <div class="project-title" data-en="LIDAR-GPS Offline Mapping System">Sistema de mapeo LIDAR-GPS Offline</div>
+              <div class="project-desc" data-en="Acquisition pipeline LIDAR + GPS with offline storage and visualization tools; lightweight backend exposing results via TCP/IP to web dashboards. Focus on data robustness and time synchronization.">Pipeline de adquisición LIDAR + GPS con almacenamiento offline; backend que expone resultados vía TCP/IP a dashboards web. Robustez de datos y sincronización temporal.</div>
+            </div>
+            <div class="project-footer">
+              <a class="github-pill" href="https://github.com/andrescifwork-dev/gps-lidar-offline-mapping-system" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9v3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section"></section>
-    <h3 id="experience-title" data-en="Experience">Experiencia</h3>
-    <div class="two-col section">
-      <section id="experience" class="box" aria-labelledby="edu-title">
+          <article class="project-card reveal">
+            <img class="project-img" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=60&auto=format&fit=crop" alt="SARAF">
+            <div class="project-body">
+              <div class="project-title" data-en="SARAF — Remote Firearm Actuation System">SARAF — Sistema de Actuación Remota de Armas de Fuego</div>
+              <div class="project-desc" data-en="CAD design and LabVIEW programming for sensor integration, actuation, and remote control. Module compatibility analogous to automotive network protocols (CAN/LIN). Developed for SEDENA.">Diseño CAD y programación en LabVIEW para integración de sensores, actuación y control remoto. Compatibilidad de módulos análoga a protocolos CAN/LIN. Desarrollado para SEDENA.</div>
+            </div>
+            <div class="project-footer"></div>
+          </article>
 
-        <h4 id="edu-title" data-en="experience">Experiencia Administrativa</h4>
-        <div class="stack">   
-          <div class="exp-item">
-  <div class="badge alt">01</div>
-  <div class="item-body">
-    <h5 data-en="Project Development Engineer">Ingeniero de Desarrollo de Proyectos</h5>
-    <p data-en="Development of technical and economic project proposals, including scope definition, feasibility analysis and cost structuring for engineering solutions.">
-      Desarrollo de propuestas técnico-económicas de proyectos, incluyendo definición de alcance, análisis de viabilidad y estructuración de costos para soluciones de ingeniería.
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge alt">02</div>
-  <div class="item-body">
-    <h5 data-en="Technical Documentation Specialist">Especialista en Documentación Técnica</h5>
-    <p data-en="Preparation of formal technical documentation (FET, technical reports, specifications and compliance documents) aligned with institutional and regulatory requirements.">
-      Elaboración de documentación técnica formal (FET, memorias técnicas, especificaciones y documentos de cumplimiento) alineada a requerimientos institucionales y normativos.
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge alt">03</div>
-  <div class="item-body">
-    <h5 data-en="Technical Support & Training Coordinator">Coordinador de Soporte y Capacitación Técnica</h5>
-    <p data-en="Delivery of basic technical training sessions, system presentations and operational guidance for multidisciplinary teams and end users.">
-      Impartición de capacitaciones técnicas básicas, presentaciones de sistemas y acompañamiento operativo para equipos multidisciplinarios y usuarios finales.
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge alt">04</div>
-  <div class="item-body">
-    <h5 data-en="Technical Bid & Proposal Analyst">Analista Técnico en Licitaciones y Propuestas</h5>
-    <p data-en="Participation in public and private bidding processes, including technical compliance analysis, requirement mapping and preparation of supporting documentation.">
-      Participación en procesos de licitación pública y privada, incluyendo análisis de cumplimiento técnico, mapeo de requerimientos y preparación de documentación soporte.
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge alt">05</div>
-  <div class="item-body">
-    <h5 data-en="Project Planning & Coordination">Planeación y Coordinación de Proyectos</h5>
-    <p data-en="Project planning using CPM methodology, task scheduling, resource coordination and technical follow-up to ensure timely execution.">
-      Planeación de proyectos mediante metodología CPM, programación de actividades, coordinación de recursos y seguimiento técnico para asegurar la ejecución en tiempo.
-    </p>
-  </div>
-</div>
+          <article class="project-card reveal">
+            <img class="project-img" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=60&auto=format&fit=crop" alt="SAVLE">
+            <div class="project-body">
+              <div class="project-title" data-en="SAVLE — Virtual Laser-Electronic Training System">SAVLE — Sistema de Entrenamiento Virtual Láser-Electrónico</div>
+              <div class="project-desc" data-en="System functionality development with failure resolution and root cause analysis (5 Whys / Fishbone). Applicable to automotive hardware reliability and embedded system diagnostics.">Desarrollo de funcionalidad con resolución de fallas y análisis de causa raíz (5 Porqués / Ishikawa). Aplicable a confiabilidad de hardware automotriz y diagnóstico de sistemas embebidos.</div>
+            </div>
+            <div class="project-footer"></div>
+          </article>
 
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- EXPERIENCE -->
+    <div class="divider"></div>
 
-      <section id="experience" class="box" aria-labelledby="exp-title">
-        <h4 id="exp-title" data-en="Experience">Experiencia Técnica</h4>
-        <div class="stack">
-
-          <div class="exp-item">
-  <div class="badge">01</div>
-  <div class="item-body">
-    <h5 data-en="Embedded Systems Engineer">Ingeniero de Sistemas Embebidos</h5>
-    <p data-en="Design and development of embedded solutions using Raspberry Pi and microcontrollers — 2021–Present">
-      Diseño y desarrollo de soluciones embebidas utilizando Raspberry Pi y microcontroladores — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">02</div>
-  <div class="item-body">
-    <h5 data-en="UAV Systems Developer">Desarrollador de Sistemas UAV</h5>
-    <p data-en="Integration, configuration and testing of multirotor drone platforms (ESC, brushless motors, flight controllers, telemetry) — 2022–Present">
-      Integración, configuración y pruebas de plataformas de drones multirrotor (ESC, motores brushless, controladores de vuelo, telemetría) — 2022–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">03</div>
-  <div class="item-body">
-    <h5 data-en="Computer Vision Engineer">Ingeniero en Visión por Computadora</h5>
-    <p data-en="Implementation of real-time computer vision systems using OpenCV for object detection and autonomous navigation — 2022–Present">
-      Implementación de sistemas de visión artificial en tiempo real con OpenCV para detección de objetos y navegación autónoma — 2022–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">04</div>
-  <div class="item-body">
-    <h5 data-en="Mechatronic Systems Designer">Diseñador de Sistemas Mecatrónicos</h5>
-    <p data-en="Mechanical design, prototyping and validation of dynamic systems including accelerated rail platforms and granular flow applications — 2021–Present">
-      Diseño mecánico, prototipado y validación de sistemas dinámicos incluyendo plataformas de riel acelerado y aplicaciones de flujo granular — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">05</div>
-  <div class="item-body">
-    <h5 data-en="Control Systems Engineer">Ingeniero de Control</h5>
-    <p data-en="Development and tuning of PID-based control systems, hardware-software integration and system-level testing — 2021–Present">
-      Desarrollo y ajuste de sistemas de control basados en PID, integración hardware-software y pruebas a nivel sistema — 2021–Presente
-    </p>
-  </div>
-</div>
-<div class="exp-item">
-  <div class="badge">06</div>
-  <div class="item-body">
-    <h5 data-en="Additive Manufacturing & Prototyping">Manufactura Aditiva y Prototipado</h5>
-    <p data-en="FDM 3D printing, design for manufacturing (DFM), mechanical assembly and functional validation of engineering prototypes — 2021–Present">
-      Impresión 3D FDM, diseño para manufactura (DFM), ensamble mecánico y validación funcional de prototipos de ingeniería — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">07</div>
-  <div class="item-body">
-    <h5 data-en="Industrial Property & Patent Procedures">Propiedad Industrial y Procedimientos de Patente</h5>
-    <p data-en="Patent protection procedures before IMPI, prior art research, technical drafting and innovation strategy development — 2022–Present">
-      Procedimientos de protección de patente ante el IMPI, búsqueda de antecedentes técnicos, redacción técnica y desarrollo de estrategia de innovación — 2022–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">08</div>
-  <div class="item-body">
-    <h5 data-en="Mechanical Design & CAD Modeling">Diseño Mecánico y Modelado CAD</h5>
-    <p data-en="Advanced 3D modeling in Fusion 360, mechanical system design, tolerance analysis and structural validation — 2021–Present">
-      Modelado 3D avanzado en Fusion 360, diseño de sistemas mecánicos, análisis de tolerancias y validación estructural — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">09</div>
-  <div class="item-body">
-    <h5 data-en="Control Systems & Automation">Sistemas de Control y Automatización</h5>
-    <p data-en="PID controller tuning, dynamic system integration, actuator control and system-level performance testing — 2021–Present">
-      Ajuste de controladores PID, integración de sistemas dinámicos, control de actuadores y pruebas de desempeño a nivel sistema — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">10</div>
-  <div class="item-body">
-    <h5 data-en="Embedded & High-Performance Systems">Sistemas Embebidos y Plataformas de Alto Desempeño</h5>
-    <p data-en="Embedded development with Raspberry Pi and microcontrollers, real-time processing and hardware-software integration — 2021–Present">
-      Desarrollo embebido con Raspberry Pi y microcontroladores, procesamiento en tiempo real e integración hardware-software — 2021–Presente
-    </p>
-  </div>
-</div>
-
-<div class="exp-item">
-  <div class="badge">11</div>
-  <div class="item-body">
-    <h5 data-en="Granular Flow & Experimental Systems">Flujo Granular y Sistemas Experimentales</h5>
-    <p data-en="Design and experimental validation of accelerated granular flow systems for controlled mass distribution applications — 2023–Present">
-      Diseño y validación experimental de sistemas acelerados de flujo granular para aplicaciones de distribución controlada de masa — 2023–Presente
-    </p>
-  </div>
-</div>
-
+    <section id="education" class="section">
+      <div class="wrap">
+        <div class="section-label" data-en="Academic Background">Formación Académica</div>
+        <h2 class="section-title" data-en="Education">Educación</h2>
+        <div class="edu-cards reveal">
+          <div class="edu-card">
+            <div class="edu-card-icon">🎓</div>
+            <h5 data-en="M.Sc. in Thermofluids Engineering (Expected 2026) · IPN-ESIME">Maestría en Ing. en Termofluidos (Esperada 2026) · IPN-ESIME</h5>
+            <p data-en="Research focused on thermal/fluid dynamics and failure analysis — directly applicable to automotive suspension and power system durability.">Investigación en dinámica térmica/fluidos y análisis de fallas — aplicable a durabilidad de suspensiones y sistemas de potencia automotrices.</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-card-icon">⚙️</div>
+            <h5 data-en="B.Sc. in Mechatronics Engineering (2019-2024) · TES Coacalco">Ingeniería en Mecatrónica (2019-2024) · TES Coacalco</h5>
+            <p data-en="Specialization in embedded systems, control engineering, CAD/CAE simulation, and advanced manufacturing.">Especialización en sistemas embebidos, ingeniería de control, simulación CAD/CAE y manufactura avanzada.</p>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <!-- Skills & Languages -->
+    <div class="divider"></div>
+
+    <section id="experience" class="section">
+      <div class="wrap">
+        <div class="section-label" data-en="Work History">Historial Profesional</div>
+        <h2 class="section-title" data-en="Experience">Experiencia</h2>
+        <div class="exp-cols">
+          <div>
+            <div class="exp-col-title" data-en="— Technical Experience">— Experiencia Técnica</div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-dot">01</div><div class="timeline-card"><div class="timeline-meta" data-en="2019 – Present · INTGEN Technologies">2019 – Presente · INTGEN Technologies</div><h5 data-en="Mechanical / Electromechanical Design Engineer">Ingeniero de Diseño Mecánico / Electromecánico</h5><p data-en="Designed and simulated electromechanical systems using SolidWorks, Fusion 360, CATIA and ANSYS for structural integrity, thermal performance, and failure modes. Applied DFMEA/PFMEA.">Diseño y simulación de sistemas electromecánicos con SolidWorks, Fusion 360, CATIA y ANSYS para integridad estructural, desempeño térmico y modos de falla. Aplicación de DFMEA/PFMEA.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot">02</div><div class="timeline-card"><div class="timeline-meta" data-en="2019 – Present · INTGEN Technologies">2019 – Presente · INTGEN Technologies</div><h5 data-en="Prototype Development & Validation">Desarrollo y Validación de Prototipos</h5><p data-en="Led full prototype cycle: machining (lathe/milling), assembly, and testing with sensors, actuators, and controls under extreme conditions. DFM and bench testing with oscilloscopes/multimeters.">Ciclo completo de prototipo: mecanizado (torno/fresadora), ensamble y pruebas con sensores, actuadores y controles en condiciones extremas. DFM y banco de pruebas con osciloscopio/multímetro.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot">03</div><div class="timeline-card"><div class="timeline-meta" data-en="2022 – Present">2022 – Presente</div><h5 data-en="Computer Vision & Embedded Systems">Visión por Computadora y Sistemas Embebidos</h5><p data-en="Real-time vision systems with OpenCV/Python for object detection. Embedded solutions with Raspberry Pi and microcontrollers (MicroPython/C++). IoT sensor integration.">Sistemas de visión en tiempo real con OpenCV/Python. Soluciones embebidas con Raspberry Pi y microcontroladores (MicroPython/C++). Integración de sensores IoT.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot">04</div><div class="timeline-card"><div class="timeline-meta" data-en="2022 – Present">2022 – Presente</div><h5 data-en="UAV Systems Developer">Desarrollador de Sistemas UAV</h5><p data-en="Integration, configuration and testing of multirotor drone platforms: ESC, brushless motors, flight controllers, MAVLink telemetry, onboard Raspberry Pi processing.">Integración y pruebas de plataformas multirrotor: ESC, motores brushless, controladores de vuelo, telemetría MAVLink, procesamiento a bordo con Raspberry Pi.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot">05</div><div class="timeline-card"><div class="timeline-meta" data-en="2021 – Present">2021 – Presente</div><h5 data-en="Additive Manufacturing & Prototyping">Manufactura Aditiva y Prototipado</h5><p data-en="FDM 3D printing, design for manufacturing (DFM), mechanical assembly and functional validation. SLA and plastic injection molding processes.">Impresión 3D FDM, DFM, ensamble mecánico y validación funcional de prototipos. Procesos de SLA e inyección de plásticos.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot">06</div><div class="timeline-card"><div class="timeline-meta" data-en="2022 – Present">2022 – Presente</div><h5 data-en="Industrial Property & Patent Filing (IMPI)">Propiedad Industrial y Patentes (IMPI)</h5><p data-en="Two IMPI registrations for innovative testing systems. Prior art research, technical drafting, innovation strategy, APQP/PPAP documentation.">Dos registros IMPI para sistemas de prueba innovadores. Búsqueda de antecedentes, redacción técnica, estrategia de innovación y documentación APQP/PPAP.</p></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="exp-col-title" data-en="— Administrative & Project Management">— Experiencia Administrativa</div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-dot alt">01</div><div class="timeline-card"><div class="timeline-meta" data-en="Project Engineering">Ingeniería de Proyectos</div><h5 data-en="Technical & Economic Proposals">Propuestas Técnico-Económicas</h5><p data-en="Development of project proposals: scope definition, feasibility analysis, cost structuring, and supplier alignment (SEDENA, ITQ, industrial clients).">Desarrollo de propuestas: alcance, análisis de viabilidad, estructuración de costos y alineación con proveedores (SEDENA, ITQ, clientes industriales).</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot alt">02</div><div class="timeline-card"><div class="timeline-meta" data-en="Documentation">Documentación</div><h5 data-en="Technical Documentation & Product Renderings">Documentación Técnica y Renderizados de Producto</h5><p data-en="Formal technical documentation (FET, specs, compliance). Product renderings using Adobe Illustrator / CorelDRAW for presentations and bid support.">Documentación técnica formal (FET, especificaciones, cumplimiento normativo). Renderizados con Adobe Illustrator / CorelDRAW para presentaciones y licitaciones.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot alt">03</div><div class="timeline-card"><div class="timeline-meta" data-en="Bids & Procurement">Licitaciones</div><h5 data-en="Bid & Proposal Analyst (Public & Private)">Analista de Licitaciones (Pública y Privada)</h5><p data-en="Technical compliance analysis, requirement mapping, supplier coordination, and cost/quality evaluation for public and private bidding processes.">Análisis de cumplimiento técnico, mapeo de requerimientos, coordinación de proveedores y evaluación costo/calidad en licitaciones públicas y privadas.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot alt">04</div><div class="timeline-card"><div class="timeline-meta" data-en="Training & Conferences">Capacitación</div><h5 data-en="Technical Training & Conferences">Capacitación Técnica y Conferencias</h5><p data-en="Delivered conferences on ballistic testing for SEDENA. Taught MicroPython courses for cross-team knowledge transfer.">Conferencias sobre pruebas balísticas para SEDENA. Cursos de MicroPython para transferencia de conocimiento en equipos multidisciplinarios.</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot alt">05</div><div class="timeline-card"><div class="timeline-meta" data-en="Planning">Planeación</div><h5 data-en="Project Planning & Coordination (CPM / Jira)">Planeación y Coordinación de Proyectos (CPM / Jira)</h5><p data-en="CPM methodology, task scheduling, resource coordination, change control and technical follow-up using Microsoft Project and Jira.">Metodología CPM, programación de actividades, coordinación de recursos, control de cambios y seguimiento técnico con Microsoft Project y Jira.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="certifications" class="section">
+      <div class="wrap">
+        <div class="section-label" data-en="Credentials">Credenciales</div>
+        <h2 class="section-title" data-en="Certifications">Certificaciones</h2>
+        <div class="certs-grid">
+          <div class="cert-card reveal"><div class="cert-icon">🎯</div><div class="cert-name" data-en="TOEFL — English Certification (Technical/Professional)">TOEFL — Certificación de Inglés (Técnico/Profesional)</div><div class="cert-org">ETS</div><div class="cert-year">Vigente</div><div class="cert-status" data-en="✓ Certified">✓ Certificado</div></div>
+          <div class="cert-card reveal"><div class="cert-icon">🏭</div><div class="cert-name" data-en="APQP / PPAP — Automotive Quality Planning">APQP / PPAP — Planeación de Calidad Automotriz</div><div class="cert-org">Formación profesional</div><div class="cert-year">2023</div><div class="cert-status" data-en="✓ Completed">✓ Completado</div></div>
+          <div class="cert-card reveal"><div class="cert-icon">⚙️</div><div class="cert-name" data-en="Autodesk Fusion 360 – CAD/CAM/CAE">Autodesk Fusion 360 – CAD/CAM/CAE</div><div class="cert-org">Autodesk</div><div class="cert-year">2021</div><div class="cert-status" data-en="✓ Completed">✓ Completado</div></div>
+          <div class="cert-card reveal"><div class="cert-icon">🧠</div><div class="cert-name" data-en="Industrial Property & Patent Filing · IMPI (x2)">Propiedad Industrial y Patentes · IMPI (x2)</div><div class="cert-org">IMPI México</div><div class="cert-year">2022–2023</div><div class="cert-status" data-en="✓ Registered">✓ Registrado</div></div>
+          <div class="cert-card reveal"><div class="cert-icon">👁️</div><div class="cert-name" data-en="Computer Vision with OpenCV · Python">Visión por Computadora con OpenCV · Python</div><div class="cert-org">Udemy</div><div class="cert-year">2022</div><div class="cert-status" data-en="✓ Completed">✓ Completado</div></div>
+          <div class="cert-card reveal"><div class="cert-icon">✈️</div><div class="cert-name" data-en="UAV Drone Systems & ArduPilot / MAVLink">Sistemas UAV y ArduPilot / MAVLink</div><div class="cert-org">Udemy</div><div class="cert-year">2022</div><div class="cert-status" data-en="✓ Completed">✓ Completado</div></div>
+        </div>
+        <p style="margin-top:16px;font-size:.8rem;color:var(--muted)" data-en="* Update certifications with your real credentials in the HTML.">* Actualiza estas certificaciones con tus credenciales reales en el HTML.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section id="skills" class="section">
-      <h4 class="muted" data-en="Skills">Habilidades</h4>
-
-      <!-- SKILLS GRID:
-           Cambia el porcentaje editando el atributo data-percent en cada .skill (ej. data-percent="86")
-           El JS aplicará la anchura y mostrará el número automáticamente.
-      -->
-      <div class="skills-grid" role="list">
-        <div class="skill" data-percent="80" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="SOLIDWORKS">SOLIDWORKS</div>
-            <div class="skill-sub" data-en="Mechanical Design, Prototiping, Rendering and simulations">Diseño de elementos mecánicos, prototipado, renderizado y simulaciones</div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">80%</span></div>
-          </div>
+      <div class="wrap">
+        <div class="section-label" data-en="Capabilities">Capacidades</div>
+        <h2 class="section-title" data-en="Skills">Habilidades</h2>
+        <div class="skills-grid">
+          <div class="skill-card reveal" data-pct="88"><div class="skill-card-title">SolidWorks / CATIA / Fusion 360</div><div class="skill-card-sub" data-en="3D design, packaging, rendering & CAE simulation">Diseño 3D, packaging, renderizado y simulación CAE</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">88%</div></div>
+          <div class="skill-card reveal" data-pct="80"><div class="skill-card-title">ANSYS (Structural / Thermofluid)</div><div class="skill-card-sub" data-en="FEA, thermal analysis, failure modes">FEA, análisis térmico, modos de falla</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">80%</div></div>
+          <div class="skill-card reveal" data-pct="75"><div class="skill-card-title">Python / C++ / LabVIEW</div><div class="skill-card-sub" data-en="Data processing, OpenCV AI, embedded/IoT, automation">Procesamiento de datos, OpenCV, embebidos/IoT, automatización</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">75%</div></div>
+          <div class="skill-card reveal" data-pct="72"><div class="skill-card-title" data-en="Prototype Development & DFM">Desarrollo de Prototipos y DFM</div><div class="skill-card-sub" data-en="Machining, 3D printing, assembly, bench testing, root cause">Mecanizado, impresión 3D, ensamble, banco de pruebas, causa raíz</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">72%</div></div>
+          <div class="skill-card reveal" data-pct="70"><div class="skill-card-title" data-en="DFMEA / APQP / PPAP / 8D">DFMEA / APQP / PPAP / 8D</div><div class="skill-card-sub" data-en="Automotive quality methodologies and reliability">Metodologías de calidad automotriz y confiabilidad</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">70%</div></div>
+          <div class="skill-card reveal" data-pct="65"><div class="skill-card-title">Adobe Illustrator / CorelDRAW</div><div class="skill-card-sub" data-en="Product renderings, presentations & bid support">Renderizados de producto, presentaciones y licitaciones</div><div class="skill-bar"><div class="skill-bar-fill"></div></div><div class="skill-pct">65%</div></div>
         </div>
-
-        <div class="skill" data-percent="80" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="FUSION 360">FUSION 360</div>
-            <div class="skill-sub" data-en="Diseño de elementos mecanicos, renderizado y animaciones">Diseño de elementos mecánicos, prototipado, renderizado y simulaciones</div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">80%</span></div>
+        <div style="margin-top:48px">
+          <div class="section-label" data-en="Languages">Idiomas</div>
+          <div class="langs-grid" style="margin-top:16px">
+            <div class="lang-card"><div class="lang-card-name" data-en="Spanish">Español</div><div class="lang-card-level" data-en="Native">Nativo</div><div class="lang-dots"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div></div></div>
+            <div class="lang-card"><div class="lang-card-name" data-en="English">Inglés</div><div class="lang-card-level" data-en="B2 — Upper Intermediate / Advanced (TOEFL Certified)">B2 — Intermedio-Avanzado (TOEFL Certificado)</div><div class="lang-dots"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div></div></div>
           </div>
-        </div>
-
-        <div class="skill" data-percent="72" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="Reverse Engineering with Photogrametry">Ingeniería inversa con fotogrametria</div>
-            <div class="skill-sub" data-en="3D scanning, ">Uso de </div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">72%</span></div>
-          </div>
-        </div>
-
-        <div class="skill" data-percent="70" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="Web / TCP-IP">Python / C++ / Java</div>
-            <div class="skill-sub" data-en="Dashboards & integration">Dashboards e integración</div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">70%</span></div>
-          </div>
-        </div>
-
-        <div class="skill" data-percent="60" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="Python / Scripting">Desarrollo de proyectos / Prototipado </div>
-            <div class="skill-sub" data-en="Automation & data processing">Automatización y procesamiento de datos</div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">60%</span></div>
-          </div>
-        </div>
-
-        <div class="skill" data-percent="50" role="listitem">
-          <div class="meta">
-            <div class="skill-title" data-en="UI / Prototyping">Soporte y Atención al cliente</div>
-            <div class="skill-sub" data-en="Design & prototyping">Diseño y prototipado</div>
-            <div class="bar" aria-hidden="true"><i></i><span class="pct">50%</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section languages" style="margin-top:18px">
-        <h4 class="muted" data-en="Languages">Idiomas</h4>
-        <div class="langs">
-          <div class="chip" data-en="Spanish — Native">Español — Nativo</div>
-          <div class="chip" data-en="English — Intermediate/Advanced">Inglés — B2 (Intermedio/Avanzado)</div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <div class="divider"></div>
+
     <section id="contact" class="section">
-      <h4 class="muted" data-en="Contact">Contacto</h4>
-
-      <div class="contact" aria-label="Contacto y datos">
-        <aside class="box contact-info" aria-labelledby="contact-info">
-          <h4 id="contact-info" data-en="Information">Información</h4>
-          <p class="muted" data-en="Engineer interested in computer vision, IoT and industrial control.">Alan — Ingeniero en sistemas embebidos. Interesado en proyectos de visión por computadora, IoT y control industrial.</p>
-          <ul class="contact-list">
-            <li data-en="Email">Email: <strong>alanrp.arp@outlook.com</strong></li>
-            <li data-en="Phone">Tel: <strong>+52 5522339927</strong></li>
-            <li data-en="Location">CDMX, Mex.</li>
-          </ul>
-
-          <div class="socials">
-            <a class="pill" href="https://github.com/andrescifwork-dev" data-en="GitHub">GitHub</a>
-            <a class="pill" href="https://candidato.mx.computrabajo.com/candidate/cv/edit/" data-en="Computrabajo">CompuTrabajo</a>
-            <a class="pill" href="https://www.linkedin.com/in/andres-fabian-cifuentes-muci%C3%B1o-6abb69385/" data-en="LinkedIn">LinkedIn</a>
+      <div class="wrap">
+        <div class="section-label" data-en="Get in touch">Ponerse en contacto</div>
+        <h2 class="section-title" data-en="Contact">Contacto</h2>
+        <div class="contact-grid reveal">
+          <div class="contact-info-card">
+            <h4 data-en="Contact Information">Información de Contacto</h4>
+            <p class="subtitle" data-en="Mechatronics Engineer at INTGEN Technologies. Interested in automotive engineering, advanced manufacturing, and product development.">Ingeniero Mecatrónico en INTGEN Technologies. Interesado en ingeniería automotriz, manufactura avanzada y desarrollo de producto.</p>
+            <div class="contact-row"><div class="contact-icon">✉️</div><div><div class="contact-row-label" data-en="Email">Email</div><div class="contact-row-val">alanrp.arp@outlook.com</div></div></div>
+            <div class="contact-row"><div class="contact-icon">📱</div><div><div class="contact-row-label" data-en="Phone / WhatsApp">Teléfono / WhatsApp</div><div class="contact-row-val">+52 55 2233 9927</div></div></div>
+            <div class="contact-row"><div class="contact-icon">📍</div><div><div class="contact-row-label" data-en="Location">Ubicación</div><div class="contact-row-val" data-en="Mexico City, MX">Ciudad de México, MX</div></div></div>
+            <div class="socials-row" style="margin-top:20px">
+              <a class="social-pill" href="https://github.com/andrescifwork-dev" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.2 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.7.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.2-1.4 3.1-1.1 3.1-1.1.5 1.6.1 2.8.1 3.1.7.8 1.1 1.7 1.1 2.9 0 4.2-2.4 5.1-4.7 5.4.3.3.6.9.6 1.9v3c0 .3.2.6.7.5 4.2-1.4 7.2-5.4 7.2-10.1C23.1 5.3 18.3.5 12 .5z"/></svg>
+                GitHub
+              </a>
+              <a class="social-pill" href="https://www.linkedin.com/in/alanpdworks" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="social-pill" href="https://candidato.mx.computrabajo.com/candidate/cv/edit/" target="_blank" rel="noopener">CompuTrabajo</a>
+            </div>
           </div>
-        </aside>
+          <div class="contact-actions-card">
+            <h4 data-en="Ready to collaborate?">¿Listo para colaborar?</h4>
+            <p data-en="Choose how you'd like to reach out — I'll reply as soon as possible.">Elige cómo quieres contactarme, te respondo a la brevedad.</p>
+            <a class="contact-btn-full btn-wa"
+               href="https://wa.me/525522339927?text=Hola%20Alan%2C%20vimos%20tu%20curr%C3%ADculum%20y%20nos%20interesa%20colaborar%20contigo%20en%20un%20proyecto%20%F0%9F%91%8B"
+               target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-en="Message on WhatsApp">Escribir por WhatsApp</span>
+            </a>
+            <button class="contact-btn-full btn-email" onclick="window.location.href='mailto:alanrp.arp@outlook.com?subject=Propuesta%20de%20colaboraci%C3%B3n&body=Hola%20Alan%2C%20me%20interesa%20colaborar%20contigo.'">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-en="Send Email">Enviar Email</span>
+            </button>
+            <a class="btn-li" href="https://www.linkedin.com/in/alanpdworks" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <button class="contact-btn-full" onclick="downloadCV(event)" style="background:var(--surface2);color:var(--text);border:1.5px solid var(--border);box-shadow:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-en="Download CV (PDF)">Descargar CV (PDF)</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <div class="foot-wrap">
-      <div>
-        <strong data-en="Alan — Mechatronics Engineering">Andrés — Ingeniería</strong><br>
-        <small data-en="Embedded solutions · Computer vision · Integration">Soluciones embebidas · Visión por computadora · Integración</small>
-      </div>
-      <div>
-        <small>© <span id="anio"></span> — <span data-en="All rights reserved">Todos los derechos reservados</span></small>
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <div class="foot-logo" data-en="Alan — Mechatronics Engineer">Alan — Ing. Mecatrónico</div>
+          <small data-en="Mechanical design · Embedded systems · Automotive R&D">Diseño mecánico · Sistemas embebidos · I+D Automotriz</small>
+        </div>
+        <div class="foot-copy">
+          <small>© <span id="anio"></span> — <span data-en="All rights reserved">Todos los derechos reservados</span></small>
+        </div>
       </div>
     </div>
   </footer>
 
-
   <script>
-    // --------- Rellenar año ----------
     document.getElementById('anio').textContent = new Date().getFullYear();
 
-    // --------- Skills: aplicar porcentajes desde data-percent ----------
-    // Para cambiar el porcentaje de una skill: edita el atributo data-percent="86" en el contenedor .skill
-    // (p. ej. <div class="skill" data-percent="86">)
-    (function applySkillPercents(){
-      document.querySelectorAll('.skill').forEach(skill=>{
-        const pct = parseInt(skill.getAttribute('data-percent') || '0',10);
-        const barInner = skill.querySelector('.bar i');
-        const pctLabel = skill.querySelector('.bar .pct');
-        barInner.style.width = Math.max(0, Math.min(100,pct)) + '%';
-        pctLabel.textContent = Math.max(0, Math.min(100,pct)) + '%';
-      });
-    })();
-
-    // --------- Language toggle (ES <-> EN) ----------
-    // Mechanism:
-    // - Elements with data-en attribute will swap innerHTML with that value when switching to English.
-    // - Inputs/textareas: use data-en-placeholder attribute for placeholder in English.
-    // - The lang button toggles and updates <html lang="..."> for accessibility.
-    const langBtn = document.getElementById('langToggle');
-    let lang = 'es'; // default
-    langBtn.addEventListener('click', ()=>{
-      lang = (lang === 'es') ? 'en' : 'es';
-      document.documentElement.lang = lang;
-      langBtn.setAttribute('aria-pressed', lang === 'en');
-      // swap all nodes with data-en
-      document.querySelectorAll('[data-en]').forEach(node=>{
-        if(lang === 'en'){
-          // store original Spanish if not stored
-          if(!node.dataset.esOriginal) node.dataset.esOriginal = node.innerHTML;
-          node.innerHTML = node.dataset.en;
-        } else {
-          // restore Spanish if exists
-          if(node.dataset.esOriginal) node.innerHTML = node.dataset.esOriginal;
-        }
-      });
-      // placeholders
-      document.querySelectorAll('input[data-en-placeholder], textarea[data-en-placeholder]').forEach(inp=>{
-        if(lang === 'en'){
-          if(!inp.dataset.esPlaceholder) inp.dataset.esPlaceholder = inp.placeholder || '';
-          inp.placeholder = inp.dataset.enPlaceholder;
-        } else {
-          inp.placeholder = inp.dataset.esPlaceholder || inp.placeholder;
-        }
-      });
-      // title and document title
-      const titleTag = document.querySelector('title');
-      if(titleTag && titleTag.dataset && titleTag.dataset.en){
-        if(lang === 'en'){
-          if(!titleTag.dataset.esOriginal) titleTag.dataset.esOriginal = titleTag.innerHTML;
-          titleTag.innerHTML = titleTag.dataset.en;
-        } else {
-          if(titleTag.dataset.esOriginal) titleTag.innerHTML = titleTag.dataset.esOriginal;
-        }
-      }
-      // update GitHub button titles (optional)
-      document.querySelectorAll('.github-btn').forEach(btn=>{
-        btn.title = (lang === 'en') ? 'GitHub' : 'GitHub';
-      });
-    });
-
-    // Optional: small behaviour to open GitHub repo (data-repo)
-    document.querySelectorAll('.github-btn').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        const repo = btn.getAttribute('data-repo') || '#';
-        if(repo && repo !== '#'){
-          window.open(repo, '_blank');
-        } else {
-          // no repo configured: prevent action
-          e.preventDefault();
-          alert('No hay repositorio configurado (data-repo). / No repository configured (data-repo).');
-        }
-      });
-    });
-  </script>
-
-<!--Responsivo-->
-<script>
-  // nav toggle
-  (function(){
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
-    navToggle.addEventListener('click', ()=>{
-      const opened = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!opened));
+    navToggle.addEventListener('click', () => {
+      const open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!open));
+      navToggle.classList.toggle('open');
       mainNav.classList.toggle('open');
     });
-  })();
-</script>
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    const langBtn = document.getElementById('langToggle');
+    let lang = 'es';
+    langBtn.addEventListener('click', () => {
+      lang = lang === 'es' ? 'en' : 'es';
+      document.documentElement.lang = lang;
+      langBtn.setAttribute('aria-pressed', String(lang === 'en'));
+      document.querySelectorAll('[data-en]').forEach(node => {
+        if (lang === 'en') {
+          if (!node.dataset.esOriginal) node.dataset.esOriginal = node.innerHTML;
+          node.innerHTML = node.dataset.en;
+        } else {
+          if (node.dataset.esOriginal) node.innerHTML = node.dataset.esOriginal;
+        }
+      });
+      const waBtn = document.getElementById('waBtn');
+      if (waBtn) waBtn.href = lang === 'en'
+        ? 'https://wa.me/525522339927?text=Hi%20Alan%2C%20we%20saw%20your%20resume%20and%20we%27d%20love%20to%20collaborate%20with%20you%20%F0%9F%91%8B'
+        : 'https://wa.me/525522339927?text=Hola%20Alan%2C%20vimos%20tu%20curr%C3%ADculum%20y%20nos%20interesa%20colaborar%20contigo%20en%20un%20proyecto%20%F0%9F%91%8B';
+    });
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('visible');
+        const fill = el.querySelector('.skill-bar-fill');
+        if (fill) fill.style.width = (el.dataset.pct || 0) + '%';
+        io.unobserve(el);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .skill-card, .cert-card, .timeline-item').forEach(el => io.observe(el));
+
+    document.querySelectorAll('.cert-card').forEach((el, i) => el.style.transitionDelay = (i * 60) + 'ms');
+    document.querySelectorAll('.skill-card').forEach((el, i) => el.style.transitionDelay = (i * 60) + 'ms');
+    document.querySelectorAll('.timeline-item').forEach((el, i) => el.style.transitionDelay = (i * 80) + 'ms');
+
+    const counterIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.stat-num[data-target]').forEach(num => {
+          const target = parseInt(num.dataset.target);
+          const sup = num.querySelector('sup') ? num.querySelector('sup').outerHTML : '';
+          let current = 0;
+          const step = Math.ceil(target / 30);
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            num.innerHTML = current + sup;
+          }, 40);
+        });
+        counterIO.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 });
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) counterIO.observe(statsSection);
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const activeIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting)
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    sections.forEach(s => activeIO.observe(s));
+
+    function downloadCV(e) {
+      e.preventDefault();
+      const link = document.createElement('a');
+      link.href = 'Alan_Rodriguez_CV.pdf';
+      link.download = 'Alan_Rodriguez_CV.pdf';
+      link.click();
+    }
+  </script>
 </body>
 </html>
